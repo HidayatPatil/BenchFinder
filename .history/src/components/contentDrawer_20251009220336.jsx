@@ -1,0 +1,71 @@
+import { FiHeart } from "react-icons/fi";
+import { FiExternalLink } from "react-icons/fi";
+import { FiBookmark } from "react-icons/fi";
+import { FiPlus } from "react-icons/fi";
+import { IconContext } from "react-icons";
+
+export default function ContentDrawer() {
+  return (
+    <div className="drawer_container">
+      <div className="drawer_handle"></div>
+      <div className="bench_data">
+        {" "}
+        {/* main container holding data */}
+        <div className="bench_information">
+          {" "}
+          {/* section above the line break */}
+          <div className="data_metadata">
+            <div className="metadata_name_options">
+              <h2>Bench Name</h2>
+              <div className="bench_metadata_options">
+                <IconContext.Provider value={{ className: "option_icons" }}>
+                  <FiHeart />
+                  <FiExternalLink />
+                  <FiBookmark />
+                </IconContext.Provider>
+              </div>
+            </div>
+            <div className="metadata_tags_rating">
+              <div className="bench_tags">#lake-view</div>
+              <div className="bench_rating">4.5</div>
+            </div>
+            <p className="metadata_address">
+              3700 Willingdon Avenue, Burnaby, BC, Canada V3R 1M2
+            </p>
+          </div>
+          <div className="data_bench_overview">
+            <div className="bench_overview_container">
+              <h4 className="overview_title">Type</h4>
+              <p className="overview_content">Wooden</p>
+            </div>
+            <span className="box_data_seperators" />
+            <div className="bench_overview_container">
+              <h4 className="overview_title">Cleanliness</h4>
+              <p className="overview_content">Very Clean</p>
+            </div>
+            <span className="box_data_seperators" />
+            <div className="bench_overview_container">
+              <h4 className="overview_title">View</h4>
+              <p className="overview_content">Good</p>
+            </div>
+          </div>
+        </div>
+        <hr /> {/* line break */}
+        <div className="bench_photos">
+          <div className="photos_heading">
+            <h3>Photos</h3>
+            <IconContext.Provider value={{ className: "option_icons" }}>
+              <FiPlus />
+            </IconContext.Provider>
+          </div>
+          <div className="photos_gallery">
+            <div className="gallery_image"></div>
+            <div className="gallery_image"></div>
+            <div className="gallery_image"></div>
+            <div className="gallery_image"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

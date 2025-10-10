@@ -1,0 +1,29 @@
+/* Reset default margins and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    width: 393px;
+    height: 100%;
+    overflow: hidden;
+    background-color: black;
+    display: flex;
+}
+
+#root {
+    width: 393px;
+    height: 100vh;
+    /* max-width: 1280px; */
+    margin: 0 auto;
+    background-color: rgb(0, 0, 0);
+}
+
+.app_body {
+    width: 393px;
+    height: 100%;
+    padding: auto;
+    background-color: aliceblue;
+}

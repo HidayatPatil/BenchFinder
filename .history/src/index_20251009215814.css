@@ -1,0 +1,175 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+/* Reset default margins and padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Roboto", sans-serif;
+  /* overflow: auto; */
+}
+
+#root {
+  width: 393px;
+  min-width: 320px;
+  max-width: 425px;
+  height: 100vh;
+  background-color: rgb(0, 0, 0);
+  position: relative;
+}
+
+.app_body {
+  width: 393px;
+  min-width: 320px;
+  max-width: 425px;
+  height: 100%;
+  background-color: #f1f1f1;
+  margin: 0 auto;
+  position: relative;
+}
+
+.drawer_container {
+  height: 547px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  padding: 0 20px;
+  background-color: #ffffff;
+  border-radius: 24px 24px 0 0;
+}
+
+.drawer_handle {
+  width: 164px;
+  height: 7px;
+  border-radius: 100px;
+  background-color: #d9d9d9;
+  margin: 20px auto 32px auto;
+}
+
+.bench_data {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.bench_information {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.data_metadata {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.metadata_name_options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  h2 {
+    font-size: 24px;
+    font-weight: 600;
+  }
+
+  .bench_metadata_options {
+    display: flex;
+    gap: 8px;
+  }
+
+  .option_icons {
+    height: 24px;
+    width: 24px;
+    color: #1c1b1f;
+  }
+}
+
+.metadata_tags_rating {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.data_bench_overview {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: center;
+  background-color: #f1f1f1;
+  padding: 16px 24px;
+  text-align: center;
+  height: 100px;
+  border-radius: 12px;
+
+  .bench_overview_container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1;
+  }
+
+  .overview_title {
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  .overview_content {
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .box_data_seperators {
+    background-color: white;
+    height: 64px;
+    width: 2px;
+  }
+}
+
+.bench_photos {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  .photos_heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h3 {
+      font-size: 20px;
+      font-weight: 500;
+    }
+
+    .option_icons {
+      height: 24px;
+      width: 24px;
+      color: #1c1b1f;
+    }
+  }
+
+  .photos_gallery {
+    display: flex;
+    gap: 12px;
+    
+
+    .gallery_image {
+        background-color: antiquewhite;
+        height: 148px;
+        width: 148px;
+        flex: auto;
+    }
+  }
+}
