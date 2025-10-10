@@ -6,7 +6,7 @@ export default function App(){
   return (
     <div className="app_body">
       {/* <h1 className="container">BenchFinder App</h1> */}
-      <nav>
+      <nav style={{ marginTop: '20px' }}>
         <Link to="/" style={{ marginRight: '20px' }}>Home</Link>
         <Link to="/results">Results</Link>
       </nav>

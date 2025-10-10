@@ -42,12 +42,3 @@ body, html {
     background-color: #FFFFFF;
     border-radius: 24px 24px 0 0;
 }
-
-.drawer_handle { 
-    width: 164px;
-    height: 7px;
-    border-radius: 100px;
-    background-color: #D9D9D9;
-    margin: 24px auto;
-}
-
