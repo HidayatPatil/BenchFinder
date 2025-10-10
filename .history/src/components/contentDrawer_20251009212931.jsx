@@ -1,7 +1,6 @@
 import { FiHeart } from "react-icons/fi";
 import { FiExternalLink } from "react-icons/fi";
 import { FiBookmark } from "react-icons/fi";
-import { FiPlus } from "react-icons/fi";
 import { IconContext } from "react-icons";
 
 export default function ContentDrawer() {
@@ -11,10 +10,10 @@ export default function ContentDrawer() {
       <div className="bench_data">
         {" "}
         {/* main container holding data */}
-        <div className="bench_information">
-          {" "}
-          {/* section above the line break */}
+        <div>
           <div className="data_metadata">
+            {" "}
+            {/* section above the line break */}
             <div className="metadata_name_options">
               <h2>Bench Name</h2>
               <div className="bench_metadata_options">
@@ -34,17 +33,15 @@ export default function ContentDrawer() {
             </p>
           </div>
           <div className="data_bench_overview">
-            <div className="bench_overview_container">
+            <div className="bench_type">
               <h4 className="overview_title">Type</h4>
               <p className="overview_content">Wooden</p>
             </div>
-            <span className="box_data_seperators" />
-            <div className="bench_overview_container">
+            <div className="bench_cleanliness">
               <h4 className="overview_title">Cleanliness</h4>
               <p className="overview_content">Very Clean</p>
             </div>
-            <span className="box_data_seperators" />
-            <div className="bench_overview_container">
+            <div className="bench_view">
               <h4 className="overview_title">View</h4>
               <p className="overview_content">Good</p>
             </div>
@@ -54,12 +51,9 @@ export default function ContentDrawer() {
         <div className="bench_photos">
           <div className="photos_heading">
             <h3>Photos</h3>
-            <IconContext.Provider value={{ className: "option_icons" }}>
-              <FiPlus />
-            </IconContext.Provider>
+            {/* <img "add plus icon" />  */}
           </div>
           <div className="photos_gallery">
-            <div className="gallery_image"></div>
             <div className="gallery_image"></div>
             <div className="gallery_image"></div>
             <div className="gallery_image"></div>

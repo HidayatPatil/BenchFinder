@@ -8,12 +8,8 @@ export default function ContentDrawer() {
   return (
     <div className="drawer_container">
       <div className="drawer_handle"></div>
-      <div className="bench_data">
-        {" "}
-        {/* main container holding data */}
-        <div className="bench_information">
-          {" "}
-          {/* section above the line break */}
+      <div className="bench_data"> {/* main container holding data */}
+        <div className="bench_information">  {/* section above the line break */}
           <div className="data_metadata">
             <div className="metadata_name_options">
               <h2>Bench Name</h2>
@@ -38,12 +34,12 @@ export default function ContentDrawer() {
               <h4 className="overview_title">Type</h4>
               <p className="overview_content">Wooden</p>
             </div>
-            <span className="box_data_seperators" />
+            <span className="box_data_seperators"/>
             <div className="bench_overview_container">
               <h4 className="overview_title">Cleanliness</h4>
               <p className="overview_content">Very Clean</p>
             </div>
-            <span className="box_data_seperators" />
+            <span className="box_data_seperators"/>
             <div className="bench_overview_container">
               <h4 className="overview_title">View</h4>
               <p className="overview_content">Good</p>
@@ -54,12 +50,9 @@ export default function ContentDrawer() {
         <div className="bench_photos">
           <div className="photos_heading">
             <h3>Photos</h3>
-            <IconContext.Provider value={{ className: "option_icons" }}>
-              <FiPlus />
-            </IconContext.Provider>
+            {/* <img "add plus icon" />  */}
           </div>
           <div className="photos_gallery">
-            <div className="gallery_image"></div>
             <div className="gallery_image"></div>
             <div className="gallery_image"></div>
             <div className="gallery_image"></div>

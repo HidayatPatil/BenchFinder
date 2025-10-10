@@ -172,6 +172,4 @@ html {
   flex: 0 0 auto; /* fixed size, no shrinking */
   width: 148px;
   height: 148px;
-  background-color: #d9d9d9;
-  border-radius: 8px;
 }

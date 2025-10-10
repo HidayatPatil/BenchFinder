@@ -162,16 +162,16 @@ html {
 }
 
 .photos_gallery {
-  display: flex;
-  overflow-x: auto;
-  overflow-y: visible;
-  gap: 12px;
-}
+    display: flex;
+    width: auto;
+    /* gap: 12px;
+    align-items: flex-start;
+    overflow: auto; */
+  }
 
 .gallery_image {
-  flex: 0 0 auto; /* fixed size, no shrinking */
-  width: 148px;
-  height: 148px;
-  background-color: #d9d9d9;
-  border-radius: 8px;
-}
+        background-color: antiquewhite;
+        height: 148px;
+        width: 148px;
+        /* flex: 1; */
+    }

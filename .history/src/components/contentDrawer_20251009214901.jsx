@@ -62,7 +62,6 @@ export default function ContentDrawer() {
             <div className="gallery_image"></div>
             <div className="gallery_image"></div>
             <div className="gallery_image"></div>
-            <div className="gallery_image"></div>
           </div>
         </div>
       </div>

@@ -17,7 +17,6 @@ html {
   justify-content: center;
   align-items: center;
   font-family: "Roboto", sans-serif;
-  overflow: visible;
 }
 
 #root {
@@ -41,7 +40,6 @@ html {
 
 .drawer_container {
   height: 547px;
-  width: 100%;
   position: absolute;
   bottom: 0;
   padding: 0 20px;
@@ -159,19 +157,9 @@ html {
       color: #1c1b1f;
     }
   }
-}
 
-.photos_gallery {
-  display: flex;
-  overflow-x: auto;
-  overflow-y: visible;
-  gap: 12px;
-}
-
-.gallery_image {
-  flex: 0 0 auto; /* fixed size, no shrinking */
-  width: 148px;
-  height: 148px;
-  background-color: #d9d9d9;
-  border-radius: 8px;
+  .photos_gallery {
+    display: flex;
+    gap: 12px;
+  }
 }
