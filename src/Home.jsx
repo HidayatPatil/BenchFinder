@@ -1,4 +1,4 @@
-import ContentDrawer from "./components/contentDrawer"
+import ContentDrawer from "/src/components/ContentDrawer.jsx"
 
 export default function Home() {
   return (
