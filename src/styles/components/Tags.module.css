@@ -1,0 +1,12 @@
+.tag_container {
+  display: inline-flex;
+  padding: 4px 12px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 60px;
+  background: #d9d9d9;
+
+  p {
+    font-size: 12px;
+  }
+}
