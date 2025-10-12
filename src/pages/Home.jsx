@@ -1,4 +1,4 @@
-import ContentDrawer from "/src/components/ContentDrawer.jsx"
+import DetailsDrawer from "../components/DetailsDrawer"
 
 export default function Home() {
   return (
@@ -8,7 +8,7 @@ export default function Home() {
       <div className="google_maps">
         <img />
       </div>
-      <ContentDrawer />
+      <DetailsDrawer />
     </div>
   )
 }

@@ -1,0 +1,11 @@
+.bench_data {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.bench_information {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}

@@ -1,6 +1,6 @@
 export default function Result(){
     return(
-        <div >
+        <div>
             <h1>Hello, Result herer</h1>
         </div>
     )
