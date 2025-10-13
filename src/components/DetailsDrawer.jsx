@@ -5,7 +5,7 @@ import BenchPhotos from "./BenchPhotos";
 // import { IconContext } from "react-icons";
 import styles from "../styles/components/DetailsDrawer.module.css";
 
-export default function ContentDrawer() {
+export default function DetailsDrawer() {
   return (
     <DrawerBody>
       <div className={styles.bench_data}>

@@ -1,14 +1,40 @@
-import DetailsDrawer from "../components/DetailsDrawer"
+import FAB from "../components/FAB";
+import BenchData from "../components/BenchData";
+import BenchPhotos from "../components/BenchPhotos";
+import { FiFilter } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   return (
-    <div>
-      <h2>Welcome to BenchFinder</h2>
-      <p>Find the perfect bench for your needs!</p>
-      <div className="google_maps">
-        <img />
+    <div className="bench_home_page">
+      <div className="home_title_header">
+        <h2>My Benches</h2>
+        <FiFilter className="filter_icon" />
       </div>
-      <DetailsDrawer />
+      <FAB />
+      <div className="bench_listings">
+        <Link to="/Bench" className="router-link">
+          <div className="listing_item">
+            <BenchData showOptions={false} />
+            <BenchPhotos showHeading={false} />
+          </div>
+        </Link>
+        <hr />
+        <Link to="/Bench" className="router-link">
+          <div className="listing_item">
+            <BenchData showOptions={false} />
+            <BenchPhotos showHeading={false} />
+          </div>
+        </Link>
+        <hr />
+        <Link to="/Bench" className="router-link">
+          <div className="listing_item">
+            <BenchData showOptions={false} />
+            <BenchPhotos showHeading={false} />
+          </div>
+        </Link>
+        <hr />
+      </div>
     </div>
-  )
+  );
 }

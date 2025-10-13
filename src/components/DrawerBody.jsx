@@ -1,14 +1,9 @@
-import styles from "../styles/components/DrawerBody.module.css"
-import { useState } from "react"
+import styles from "../styles/components/DrawerBody.module.css";
 
-export default function DrawerBody({children}){
-    const [isOpen, setIsOpen] = useState(true);
-
-    return(
-        <div className={`${styles.drawer_container} ${!isOpen ? styles.drawer_collapsed : ""}`}>
-            <div className={styles.drawer_handle} onClick={() => setIsOpen(!isOpen)}></div>
-            {children}
-        </div>
-        
-    )
+export default function DrawerBody({ children }) {
+  return (
+    <div className={styles.drawer_container}>
+        {children}
+    </div>
+  ) 
 }

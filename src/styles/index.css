@@ -11,13 +11,12 @@ body,
 html {
   width: 100%;
   height: 100vh;
-  overflow: hidden;
   background-color: black;
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: "Roboto", sans-serif;
-  overflow: auto;
+  overflow-x: hidden;
 }
 
 #root {
@@ -27,6 +26,7 @@ html {
   height: 100vh;
   background-color: rgb(0, 0, 0);
   position: relative;
+  overflow: hidden;
 }
 
 .app_body {
@@ -37,4 +37,61 @@ html {
   background-color: #f1f1f1;
   margin: 0 auto;
   position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
+
+.bench_home_page {
+  /* overflow-y: scroll; */
+}
+
+.home_title_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 20px 24px 20px;
+
+  h2 {
+    font-size: 32px;
+  }
+
+  .filter_icon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.bench_listings {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 0 20px;
+}
+
+/* Reset Link styles */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.router-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  width: 100%;
+}
+
+.bench_details_page {
+  /* background-color: rebeccapurple; */
+  height: inherit;
+  position: relative;
+
+  .back_to_home {
+    height: 32px;
+    width: 32px;
+    position: absolute;
+    top: 32px;
+    left: 24px;
+  }
+}
+

@@ -29,6 +29,18 @@
     flex: 1;
   }
 
+  .rating_container {
+    display: inline-flex;
+    gap: 8px;
+    justify-content: center;
+
+    .rating_icon {
+      fill: #1c1b1f;
+      width: 16px;
+      height: 16px;
+    }
+  }
+
   .overview_title {
     font-size: 12px;
     font-weight: 500;

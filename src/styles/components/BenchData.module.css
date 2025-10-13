@@ -19,9 +19,13 @@
     gap: 8px;
   }
 
+  .bench_metadata_no_options {
+    display: none;
+  }
+
   .option_icons {
-    height: 24px;
-    width: 24px;
+    height: 20px;
+    width: 20px;
     color: #1c1b1f;
   }
 }
@@ -36,15 +40,15 @@
     gap: 4px;
   }
 
-  .bench_rating {
+  .bench_distance{
     display: inline-flex;
     align-items: center;
     gap: 8px;
 
-    .rating_icon {
-      fill: #1c1b1f;
-      width: 20px;
-      height: 20px;
+    .distance_icon {
+      color: #1c1b1f;
+      width: 16px;
+      height: 16px;
     }
   }
 }
