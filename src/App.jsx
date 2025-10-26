@@ -8,7 +8,7 @@ export default function App() {
     return (
         <div className='app_body'>
             <Routes>
-                <Route path='/bench' element={<Bench />} />
+                <Route path='/bench/:id' element={<Bench />} />
                 <Route path='/' element={<Home />} />
                 <Route path='/results' element={<Result />} />
                 <Route path='/add' element={<Add />} />

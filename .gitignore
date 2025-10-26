@@ -25,3 +25,6 @@ dist-ssr
 
 # History files
 .history/
+
+# Environment variables
+.env

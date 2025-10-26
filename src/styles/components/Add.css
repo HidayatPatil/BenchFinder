@@ -2,6 +2,11 @@
   padding: 20px;
   max-width: 600px;
   margin: 0 auto;
+
+  h1{
+    text-align: center;
+    margin-right: 24px;
+  }
 }
 
 header {
@@ -18,6 +23,57 @@ header {
   padding: 0 10px;
 }
 
+.refresh_maps {
+  transition: transform 0.2s ease;
+}
+
+/* .refresh_maps:hover {
+  transform: scale(1.1);
+} */
+
+.refresh_maps.spinning {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.location-loading,
+.location-error {
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.location-loading {
+  background-color: #e8f4fd;
+  color: #0066cc;
+}
+
+.location-error {
+  background-color: #ffe8e8;
+  color: #cc0000;
+}
+
+.map-preview {
+  margin-top: 10px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.refresh_maps {
+  position: absolute;
+  top: 0;
+  right: 12px;
+}
+
 h1 {
   margin: 0;
   flex-grow: 1;
@@ -26,6 +82,7 @@ h1 {
 
 .input-group {
   margin-bottom: 20px;
+  position: relative;
 }
 
 label {
@@ -66,9 +123,10 @@ input, select {
 }
 
 .tag {
+  width: 80px;
   padding: 8px 16px;
   border-radius: 20px;
-  background: #f0f0f0;
+  background: #c6c6c6;
   border: none;
   cursor: pointer;
 }
@@ -81,6 +139,46 @@ input, select {
 .photos-container {
   display: flex;
   gap: 10px;
+  flex-wrap: wrap;
+}
+
+.photo-preview {
+  width: 80px;
+  height: 80px;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.photo-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.delete-photo {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 18px;
+  z-index: 2;
+  padding: 0;
+  transition: background-color 0.2s ease;
+}
+
+.delete-photo:hover {
+  background: rgba(0, 0, 0, 0.7);
 }
 
 .add-photo {

@@ -5,7 +5,7 @@ import BenchPhotos from "./BenchPhotos";
 // import { IconContext } from "react-icons";
 import styles from "../styles/components/DetailsDrawer.module.css";
 
-export default function DetailsDrawer() {
+export default function DetailsDrawer({ name, location, rating, tags, photos, cleanliness, view }) {
   return (
     <DrawerBody>
       <div className={styles.bench_data}>
@@ -14,11 +14,21 @@ export default function DetailsDrawer() {
         <div className={styles.bench_information}>
           {" "}
           {/* section above the line break */}
-          <BenchData />
-          <BenchOverview />
+          <BenchData 
+            name={name}
+            location={location}
+            rating={rating}
+            tags={tags}
+          />
+          <BenchOverview 
+            cleanliness={cleanliness}
+            view={view}
+          />
         </div>
         <hr /> {/* line break */}
-        <BenchPhotos />
+        <BenchPhotos 
+          photos={photos}
+        />
       </div>
     </DrawerBody>
   );
