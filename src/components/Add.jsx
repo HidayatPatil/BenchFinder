@@ -39,7 +39,7 @@ const Add = ({ onSubmit }) => {
         
         // Reverse geocoding to get address
         const response = await fetch(
-          `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${import.meta.env.VITE_GOOGLE_MAPS_API_KEY}`
+          `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${import.meta.env.VITE_PUBLIC_GOOGLE_MAPS_API_KEY}`
         );
         const data = await response.json();
         
@@ -51,7 +51,8 @@ const Add = ({ onSubmit }) => {
           }));
         }
       } catch (err) {
-        setError("Failed to get location. Please try again.");
+        console.error('Location error:', err);
+        setError(`Failed to get location: ${err.message}`);
       }
     } else {
       setError("Geolocation is not supported by your browser");
@@ -68,7 +69,7 @@ const Add = ({ onSubmit }) => {
           // Reverse geocoding to get address
           try {
             const response = await fetch(
-              `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${import.meta.env.VITE_GOOGLE_MAPS_API_KEY}`
+              `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${import.meta.env.VITE_PUBLIC_GOOGLE_MAPS_API_KEY}`
             );
             const data = await response.json();
             
