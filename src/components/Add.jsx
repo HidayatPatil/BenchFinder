@@ -7,7 +7,7 @@ import { FiRefreshCw } from "react-icons/fi";
 const Add = ({ onSubmit }) => {
   const navigate = useNavigate();
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY,
+    googleMapsApiKey: import.meta.env.VITE_PUBLIC_GOOGLE_MAPS_API_KEY,
     libraries: ['places']
   });
 
@@ -39,7 +39,7 @@ const Add = ({ onSubmit }) => {
         
         // Reverse geocoding to get address
         const response = await fetch(
-          `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyAC-RV8Liz1_YoLerVUma9co2RaUtDuzJY`
+          `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${import.meta.env.VITE_GOOGLE_MAPS_API_KEY}`
         );
         const data = await response.json();
         
@@ -68,7 +68,7 @@ const Add = ({ onSubmit }) => {
           // Reverse geocoding to get address
           try {
             const response = await fetch(
-              `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyAC-RV8Liz1_YoLerVUma9co2RaUtDuzJY`
+              `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${import.meta.env.VITE_GOOGLE_MAPS_API_KEY}`
             );
             const data = await response.json();
             
