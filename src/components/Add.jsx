@@ -4,25 +4,27 @@ import { Link, useNavigate } from 'react-router-dom';
 import { GoogleMap, Marker, useLoadScript } from '@react-google-maps/api';
 import { FiRefreshCw } from 'react-icons/fi';
 
-const Add = ({ onSubmit }) => {
+const Add = ({ onSubmit, initialData = null, isEditMode = false }) => {
     const navigate = useNavigate();
     const { isLoaded } = useLoadScript({
         googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY,
         libraries: ['places'],
     });
 
-    const [benchData, setBenchData] = useState({
-        name: '',
-        location: '',
-        coordinates: null,
-        rating: 0,
-        tags: [],
-        photos: [],
-        cleanliness: '',
-        view: '',
-    });
+    const [benchData, setBenchData] = useState(
+        initialData || {
+            name: '',
+            location: '',
+            coordinates: null,
+            rating: 0,
+            tags: [],
+            photos: [],
+            cleanliness: '',
+            view: '',
+        }
+    );
 
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(!initialData);
     const [error, setError] = useState(null);
 
     const handleLocationRefresh = async () => {
@@ -209,8 +211,11 @@ const Add = ({ onSubmit }) => {
             }
         };
 
-        getInitialLocation();
-    }, []);
+        // Only get location if we don't have initial data (edit mode)
+        if (!initialData) {
+            getInitialLocation();
+        }
+    }, [initialData]);
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -298,34 +303,60 @@ const Add = ({ onSubmit }) => {
                 benchData.photos.map((photo) => resizeImage(photo))
             );
 
-            // Add timestamp as ID and creation date
-            const benchWithMetadata = {
-                ...benchData,
-                photos: resizedPhotos,
-                id: Date.now(),
-                createdAt: new Date().toISOString(),
-            };
-
             // Get existing benches from localStorage
             const existingBenches = JSON.parse(
                 localStorage.getItem('benches') || '[]'
             );
 
-            // Add new bench to the array
-            const updatedBenches = [...existingBenches, benchWithMetadata];
+            let updatedBenches;
+            let benchWithMetadata;
+
+            if (isEditMode && benchData.id) {
+                // Edit mode: Update existing bench
+                benchWithMetadata = {
+                    ...benchData,
+                    photos: resizedPhotos,
+                    updatedAt: new Date().toISOString(),
+                };
+
+                updatedBenches = existingBenches.map((bench) =>
+                    bench.id.toString() === benchData.id.toString()
+                        ? benchWithMetadata
+                        : bench
+                );
+
+                console.log('Bench updated successfully:', benchWithMetadata);
+            } else {
+                // Create mode: Add new bench
+                benchWithMetadata = {
+                    ...benchData,
+                    photos: resizedPhotos,
+                    id: Date.now(),
+                    createdAt: new Date().toISOString(),
+                };
+
+                updatedBenches = [...existingBenches, benchWithMetadata];
+                console.log('Bench saved successfully:', benchWithMetadata);
+            }
 
             // Save back to localStorage
             localStorage.setItem('benches', JSON.stringify(updatedBenches));
-
-            console.log('Bench saved successfully:', benchWithMetadata);
 
             // If onSubmit prop exists, call it with the bench data
             if (onSubmit) {
                 onSubmit(benchWithMetadata);
             }
 
-            // Navigate back to home page
-            navigate('/');
+            // Navigate back to home page or bench detail page
+            if (isEditMode) {
+                // Use state to force a refresh when navigating back to bench detail
+                navigate(`/bench/${benchData.id}`, {
+                    replace: false,
+                    state: { updated: Date.now() },
+                });
+            } else {
+                navigate('/');
+            }
         } catch (error) {
             console.error('Error saving bench:', error);
             alert('There was an error saving the bench. Please try again.');
@@ -335,10 +366,10 @@ const Add = ({ onSubmit }) => {
     return (
         <div className='add-container'>
             <header>
-                <Link to='/'>
+                <Link to={isEditMode ? `/bench/${benchData.id}` : '/'}>
                     <button className='close-button'>×</button>
                 </Link>
-                <h1>Add Bench</h1>
+                <h1>{isEditMode ? 'Edit Bench' : 'Add Bench'}</h1>
             </header>
 
             <form onSubmit={handleSave}>
