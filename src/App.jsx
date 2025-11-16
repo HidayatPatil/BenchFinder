@@ -2,6 +2,7 @@ import { Routes, Route, Link } from 'react-router-dom';
 import Result from './pages/Result';
 import Home from './pages/Home';
 import Add from './components/Add';
+import Edit from './pages/Edit';
 import Bench from './pages/Bench';
 
 export default function App() {
@@ -12,6 +13,7 @@ export default function App() {
                 <Route path='/' element={<Home />} />
                 <Route path='/results' element={<Result />} />
                 <Route path='/add' element={<Add />} />
+                <Route path='/edit/:id' element={<Edit />} />
             </Routes>
         </div>
     );
