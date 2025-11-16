@@ -1,6 +1,6 @@
 import styles from '../styles/components/BenchData.module.css';
 import Tags from './Tags';
-import BenchMetadataOptions from './BenchMetadataOptions';
+import BenchActions from './BenchActions';
 import { FiMapPin } from 'react-icons/fi';
 
 export default function BenchData({
@@ -14,9 +14,7 @@ export default function BenchData({
         <div className={styles.data_metadata}>
             <div className={styles.metadata_name_options}>
                 <h2>{name || 'Unnamed Bench'}</h2>
-                {showOptions && benchId && (
-                    <BenchMetadataOptions benchId={benchId} />
-                )}
+                {showOptions && benchId && <BenchActions benchId={benchId} />}
             </div>
             <div className={styles.metadata_tags_rating}>
                 <div className={styles.bench_tags}>

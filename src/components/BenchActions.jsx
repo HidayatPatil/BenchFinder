@@ -2,7 +2,7 @@ import { FiEdit3, FiExternalLink, FiTrash2 } from 'react-icons/fi';
 import { useNavigate } from 'react-router-dom';
 import styles from '../styles/components/BenchData.module.css';
 
-export default function BenchMetadataOptions({ benchId }) {
+export default function BenchActions({ benchId }) {
     const navigate = useNavigate();
 
     const handleDelete = () => {
