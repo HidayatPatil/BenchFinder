@@ -4,7 +4,7 @@ import styles from '../styles/components/Map.module.css';
 
 export default function Map({ coordinates }) {
     const { isLoaded } = useLoadScript({
-        googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY,
+        googleMapsApiKey: import.meta.env.VITE_PUBLIC_GOOGLE_MAPS_API_KEY,
         libraries: ['places', 'geometry'],
     });
 
