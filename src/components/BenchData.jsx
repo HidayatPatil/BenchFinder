@@ -10,12 +10,18 @@ export default function BenchData({
     tags = [],
     benchId,
     rating = 0,
+    isDetailPage = false,
 }) {
     return (
         <div className={styles.data_metadata}>
             <div className={styles.metadata_name_options}>
                 <h2>{name || 'Unnamed Bench'}</h2>
-                {showOptions && benchId && <BenchActions benchId={benchId} />}
+                {showOptions && benchId && (
+                    <BenchActions
+                        benchId={benchId}
+                        isDetailPage={isDetailPage}
+                    />
+                )}
             </div>
             {rating > 0 && (
                 <div className={styles.star_rating}>
@@ -38,8 +44,18 @@ export default function BenchData({
                     ))}
                 </div>
                 <div className={styles.bench_distance}>
-                    <FiMapPin className={styles.distance_icon} />
-                    <p>1.2 km</p>
+                    <FiMapPin
+                        className={`${styles.distance_icon} ${
+                            isDetailPage ? styles.distance_icon_white : ''
+                        }`}
+                    />
+                    <p
+                        className={
+                            isDetailPage ? styles.distance_text_black : ''
+                        }
+                    >
+                        1.2 km
+                    </p>
                 </div>
             </div>
             <p className={styles.metadata_address}>

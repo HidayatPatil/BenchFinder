@@ -64,5 +64,17 @@
             width: 16px;
             height: 16px;
         }
+
+        .distance_icon_white {
+            color: black;
+        }
     }
+}
+
+.option_icons_white {
+    color: black !important;
+}
+
+.distance_text_black {
+    color: black;
 }

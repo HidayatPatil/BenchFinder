@@ -169,7 +169,7 @@ export default function BenchPhotos({
                         <FiPlus
                             className={styles.option_icons}
                             onClick={handlePlusClick}
-                            style={{ cursor: 'pointer' }}
+                            style={{ cursor: 'pointer', color: 'black' }}
                             title='Add photos'
                         />
                         <input

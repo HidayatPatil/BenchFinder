@@ -29,6 +29,7 @@ export default function DetailsDrawer({
                         rating={rating}
                         tags={tags}
                         benchId={benchId}
+                        isDetailPage={true}
                     />
                     <BenchOverview
                         rating={rating}

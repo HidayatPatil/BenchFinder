@@ -3,9 +3,12 @@ import { FiEdit3, FiExternalLink, FiTrash2 } from 'react-icons/fi';
 import { useNavigate } from 'react-router-dom';
 import styles from '../styles/components/BenchData.module.css';
 
-export default function BenchActions({ benchId }) {
+export default function BenchActions({ benchId, isDetailPage = false }) {
     const navigate = useNavigate();
     const [copied, setCopied] = useState(false);
+    const iconClass = isDetailPage
+        ? `${styles.option_icons} ${styles.option_icons_white}`
+        : styles.option_icons;
 
     const handleDelete = (e) => {
         e.preventDefault();
@@ -83,19 +86,19 @@ export default function BenchActions({ benchId }) {
             style={{ position: 'relative' }}
         >
             <FiEdit3
-                className={styles.option_icons}
+                className={iconClass}
                 onClick={handleEdit}
                 title='Edit bench'
                 style={{ cursor: 'pointer' }}
             />
             <FiExternalLink
-                className={`${styles.option_icons} share-button`}
+                className={`${iconClass} share-button`}
                 onClick={handleShare}
                 title='Share bench'
                 style={{ cursor: 'pointer' }}
             />
             <FiTrash2
-                className={styles.option_icons}
+                className={iconClass}
                 onClick={handleDelete}
                 title='Delete bench'
                 style={{ cursor: 'pointer' }}
