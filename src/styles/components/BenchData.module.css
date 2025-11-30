@@ -1,54 +1,68 @@
 .data_metadata {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.star_rating {
+    display: flex;
+    gap: 4px;
+    font-size: 18px;
+}
+
+.star {
+    color: #d0d0d0;
+}
+
+.star_filled {
+    color: #ffc107;
 }
 
 .metadata_name_options {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  h2 {
-    font-size: 24px;
-    font-weight: 600;
-  }
-
-  .bench_metadata_options {
     display: flex;
-    gap: 8px;
-  }
+    justify-content: space-between;
+    align-items: center;
 
-  .bench_metadata_no_options {
-    display: none;
-  }
+    h2 {
+        font-size: 24px;
+        font-weight: 600;
+    }
 
-  .option_icons {
-    height: 20px;
-    width: 20px;
-    color: #1c1b1f;
-  }
+    .bench_metadata_options {
+        display: flex;
+        gap: 8px;
+    }
+
+    .bench_metadata_no_options {
+        display: none;
+    }
+
+    .option_icons {
+        height: 20px;
+        width: 20px;
+        color: #1c1b1f;
+    }
 }
 
 .metadata_tags_rating {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  .bench_tags {
-    display: inline-flex;
-    gap: 4px;
-  }
-
-  .bench_distance{
-    display: inline-flex;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 8px;
 
-    .distance_icon {
-      color: #1c1b1f;
-      width: 16px;
-      height: 16px;
+    .bench_tags {
+        display: inline-flex;
+        gap: 4px;
     }
-  }
+
+    .bench_distance {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+
+        .distance_icon {
+            color: #1c1b1f;
+            width: 16px;
+            height: 16px;
+        }
+    }
 }

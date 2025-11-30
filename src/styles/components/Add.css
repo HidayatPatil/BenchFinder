@@ -7,6 +7,7 @@
         text-align: center;
         margin-right: 24px;
     }
+    background: linear-gradient(135deg, #a9b8ff 0%, #60219e 100%);
 }
 
 header {
@@ -127,7 +128,7 @@ select {
     width: 80px;
     padding: 8px 16px;
     border-radius: 20px;
-    background: #c6c6c6;
+    background: #efebeb;
     border: none;
     cursor: pointer;
 }

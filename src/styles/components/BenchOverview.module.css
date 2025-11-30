@@ -12,48 +12,48 @@
 }
 
 .overview_container {
-  display: flex;
-  justify-content: space-between;
-  gap: 24px;
-  align-items: center;
-  background-color: #f1f1f1;
-  padding: 16px 24px;
-  text-align: center;
-  height: 100px;
-  border-radius: 12px;
-
-  .bench_overview_container {
     display: flex;
-    flex-direction: column;
-    gap: 12px;
-    flex: 1;
-  }
+    justify-content: space-between;
+    gap: 16px;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 12px 16px;
+    text-align: center;
+    height: 80px;
+    border-radius: 12px;
 
-  .rating_container {
-    display: inline-flex;
-    gap: 8px;
-    justify-content: center;
-
-    .rating_icon {
-      fill: #1c1b1f;
-      width: 16px;
-      height: 16px;
+    .bench_overview_container {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        flex: 1;
     }
-  }
 
-  .overview_title {
-    font-size: 12px;
-    font-weight: 500;
-  }
+    .rating_container {
+        display: inline-flex;
+        gap: 8px;
+        justify-content: center;
 
-  .overview_content {
-    font-size: 14px;
-    font-weight: 600;
-  }
+        .rating_icon {
+            fill: #1c1b1f;
+            width: 16px;
+            height: 16px;
+        }
+    }
 
-  .box_data_seperators {
-    background-color: white;
-    height: 64px;
-    width: 2px;
-  }
+    .overview_title {
+        font-size: 12px;
+        font-weight: 500;
+    }
+
+    .overview_content {
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .box_data_seperators {
+        background-color: white;
+        height: 64px;
+        width: 2px;
+    }
 }

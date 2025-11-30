@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from '../styles/components/BenchPhotos.module.css';
 import { FiPlus } from 'react-icons/fi';
@@ -11,7 +11,13 @@ export default function BenchPhotos({
 }) {
     const displayPhotos = photos.slice(0, 4); // Only show up to 4 photos
     const fileInputRef = useRef(null);
+    const galleryRef = useRef(null);
     const navigate = useNavigate();
+    const [isDragging, setIsDragging] = useState(false);
+    const [hasDragged, setHasDragged] = useState(false);
+    const [startX, setStartX] = useState(0);
+    const [scrollLeft, setScrollLeft] = useState(0);
+    const [selectedPhoto, setSelectedPhoto] = useState(null);
 
     const resizeImage = (dataUrl, maxWidth = 800) => {
         return new Promise((resolve) => {
@@ -103,6 +109,53 @@ export default function BenchPhotos({
         }
     };
 
+    const handleMouseDown = (e) => {
+        if (!galleryRef.current) return;
+        e.preventDefault();
+        setIsDragging(true);
+        setHasDragged(false);
+        setStartX(e.pageX - galleryRef.current.offsetLeft);
+        setScrollLeft(galleryRef.current.scrollLeft);
+        galleryRef.current.style.cursor = 'grabbing';
+    };
+
+    const handleMouseLeave = () => {
+        setIsDragging(false);
+        if (galleryRef.current) {
+            galleryRef.current.style.cursor = 'grab';
+        }
+    };
+
+    const handleMouseUp = () => {
+        setIsDragging(false);
+        if (galleryRef.current) {
+            galleryRef.current.style.cursor = 'grab';
+        }
+    };
+
+    const handleMouseMove = (e) => {
+        if (!isDragging || !galleryRef.current) return;
+        e.preventDefault();
+        const x = e.pageX - galleryRef.current.offsetLeft;
+        const walk = (x - startX) * 2; // Multiply by 2 for faster scrolling
+
+        if (Math.abs(walk) > 5) {
+            setHasDragged(true);
+        }
+
+        galleryRef.current.scrollLeft = scrollLeft - walk;
+    };
+
+    const handlePhotoClick = (photo) => {
+        if (!hasDragged && showHeading) {
+            setSelectedPhoto(photo);
+        }
+    };
+
+    const closeModal = () => {
+        setSelectedPhoto(null);
+    };
+
     return (
         <div className={styles.bench_photos}>
             <div
@@ -133,14 +186,26 @@ export default function BenchPhotos({
                     <FiPlus className={styles.option_icons} />
                 )}
             </div>
-            <div className={styles.photos_gallery}>
+            <div
+                ref={galleryRef}
+                className={styles.photos_gallery}
+                onMouseDown={handleMouseDown}
+                onMouseLeave={handleMouseLeave}
+                onMouseUp={handleMouseUp}
+                onMouseMove={handleMouseMove}
+            >
                 {displayPhotos.length > 0 ? (
                     displayPhotos.map((photo, index) => (
-                        <div key={index} className={styles.gallery_image}>
+                        <div
+                            key={index}
+                            className={styles.gallery_image}
+                            onClick={() => handlePhotoClick(photo)}
+                        >
                             <img
                                 src={photo}
                                 alt={`Bench photo ${index + 1}`}
                                 className={styles.gallery_photo}
+                                draggable={false}
                             />
                         </div>
                     ))
@@ -148,6 +213,27 @@ export default function BenchPhotos({
                     <div className={styles.gallery_image}></div>
                 )}
             </div>
+
+            {selectedPhoto && (
+                <div className={styles.photo_modal} onClick={closeModal}>
+                    <div
+                        className={styles.modal_content}
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        <button
+                            className={styles.close_button}
+                            onClick={closeModal}
+                        >
+                            ×
+                        </button>
+                        <img
+                            src={selectedPhoto}
+                            alt='Full size view'
+                            className={styles.modal_image}
+                        />
+                    </div>
+                </div>
+            )}
         </div>
     );
 }
