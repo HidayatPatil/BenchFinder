@@ -26,6 +26,21 @@ export default function Home() {
 
     useEffect(() => {
         loadBenches();
+
+        // Add event listener for custom bench update event
+        const handleBenchUpdate = () => {
+            loadBenches();
+        };
+
+        window.addEventListener('benchesUpdated', handleBenchUpdate);
+
+        // Also reload when the window gains focus (returning from another page)
+        window.addEventListener('focus', loadBenches);
+
+        return () => {
+            window.removeEventListener('benchesUpdated', handleBenchUpdate);
+            window.removeEventListener('focus', loadBenches);
+        };
     }, []); // Empty dependency array means this runs once when component mounts
 
     const handleDelete = (benchId) => {

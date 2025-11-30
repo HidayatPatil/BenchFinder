@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 /* Reset default margins and padding */
 * {
@@ -15,7 +15,7 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: "Roboto", sans-serif;
+    font-family: 'Roboto', sans-serif;
     overflow-x: hidden;
 }
 
@@ -34,11 +34,16 @@ html {
     min-width: 320px;
     max-width: 425px;
     height: 100%;
-    background-color: #f1f1f1;
+    background-color: #ffffff;
     margin: 0 auto;
     position: relative;
     overflow-y: auto;
     overflow-x: hidden;
+}
+
+.bench_home_page {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #a9b8ff 0%, #60219e 100%);
 }
 
 .home_title_header {
@@ -46,6 +51,7 @@ html {
     justify-content: space-between;
     align-items: center;
     padding: 40px 20px 24px 20px;
+    color: rgb(0, 0, 0);
 
     h2 {
         font-size: 32px;

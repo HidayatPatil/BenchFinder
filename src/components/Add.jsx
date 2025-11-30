@@ -335,7 +335,7 @@ const Add = ({ onSubmit, initialData = null, isEditMode = false }) => {
                     createdAt: new Date().toISOString(),
                 };
 
-                updatedBenches = [...existingBenches, benchWithMetadata];
+                updatedBenches = [benchWithMetadata, ...existingBenches];
                 console.log('Bench saved successfully:', benchWithMetadata);
             }
 
@@ -363,12 +363,16 @@ const Add = ({ onSubmit, initialData = null, isEditMode = false }) => {
         }
     };
 
+    const handleClose = () => {
+        navigate(-1); // Go back to the previous page
+    };
+
     return (
         <div className='add-container'>
             <header>
-                <Link to={isEditMode ? `/bench/${benchData.id}` : '/'}>
-                    <button className='close-button'>×</button>
-                </Link>
+                <button className='close-button' onClick={handleClose}>
+                    ×
+                </button>
                 <h1>{isEditMode ? 'Edit Bench' : 'Add Bench'}</h1>
             </header>
 

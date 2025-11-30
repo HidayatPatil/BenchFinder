@@ -4,32 +4,25 @@ import BenchPhotos from './BenchPhotos';
 import styles from '../styles/components/ListingItem.module.css';
 
 export default function ListingItem({ benchData }) {
-    const handleActionsClick = (e) => {
-        e.preventDefault(); // Prevent navigation when clicking actions
-        e.stopPropagation();
-    };
-
     return (
         <>
-            <div className={styles.listing_wrapper}>
-                <Link to={`/bench/${benchData?.id}`} className={styles.link}>
+            <Link to={`/bench/${benchData?.id}`} className={styles.link}>
+                <div className={styles.listing_wrapper}>
                     <div className={styles.listing_item}>
-                        <div onClick={handleActionsClick}>
-                            <BenchData
-                                showOptions={true}
-                                name={benchData?.name}
-                                location={benchData?.location}
-                                tags={benchData?.tags}
-                                benchId={benchData?.id}
-                            />
-                        </div>
+                        <BenchData
+                            showOptions={true}
+                            name={benchData?.name}
+                            location={benchData?.location}
+                            tags={benchData?.tags}
+                            benchId={benchData?.id}
+                        />
                         <BenchPhotos
                             showHeading={false}
                             photos={benchData?.photos}
                         />
                     </div>
-                </Link>
-            </div>
+                </div>
+            </Link>
             <hr className={styles.divider} />
         </>
     );

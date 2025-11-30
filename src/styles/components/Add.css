@@ -1,30 +1,30 @@
 .add-container {
-  padding: 20px;
-  max-width: 600px;
-  margin: 0 auto;
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
 
-  h1{
-    text-align: center;
-    margin-right: 24px;
-  }
+    h1 {
+        text-align: center;
+        margin-right: 24px;
+    }
 }
 
 header {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
 .close-button {
-  background: none;
-  border: none;
-  font-size: 24px;
-  cursor: pointer;
-  padding: 0 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 0 10px;
 }
 
 .refresh_maps {
-  transition: transform 0.2s ease;
+    transition: transform 0.2s ease;
 }
 
 /* .refresh_maps:hover {
@@ -32,184 +32,185 @@ header {
 } */
 
 .refresh_maps.spinning {
-  animation: spin 1s linear infinite;
+    animation: spin 1s linear infinite;
 }
 
 @keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .location-loading,
 .location-error {
-  padding: 10px;
-  border-radius: 4px;
-  margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 10px;
 }
 
 .location-loading {
-  background-color: #e8f4fd;
-  color: #0066cc;
+    background-color: #e8f4fd;
+    color: #0066cc;
 }
 
 .location-error {
-  background-color: #ffe8e8;
-  color: #cc0000;
+    background-color: #ffe8e8;
+    color: #cc0000;
 }
 
 .map-preview {
-  margin-top: 10px;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .refresh_maps {
-  position: absolute;
-  top: 0;
-  right: 12px;
+    position: absolute;
+    top: 0;
+    right: 12px;
 }
 
 h1 {
-  margin: 0;
-  flex-grow: 1;
-  text-align: center;
+    margin: 0;
+    flex-grow: 1;
+    text-align: center;
 }
 
 .input-group {
-  margin-bottom: 20px;
-  position: relative;
+    margin-bottom: 20px;
+    position: relative;
 }
 
 label {
-  display: block;
-  margin-bottom: 8px;
-  font-weight: 500;
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
 }
 
-input, select {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-size: 16px;
+input,
+select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
 }
 
 .rating-stars {
-  display: flex;
-  gap: 10px;
+    display: flex;
+    gap: 10px;
 }
 
 .star {
-  background: none;
-  border: none;
-  font-size: 24px;
-  color: #ddd;
-  cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #ddd;
+    cursor: pointer;
 }
 
 .star.active {
-  color: gold;
+    color: gold;
 }
 
 .tags-container {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
 .tag {
-  width: 80px;
-  padding: 8px 16px;
-  border-radius: 20px;
-  background: #c6c6c6;
-  border: none;
-  cursor: pointer;
+    width: 80px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    background: #c6c6c6;
+    border: none;
+    cursor: pointer;
 }
 
 .tag.active {
-  background: #000;
-  color: white;
+    background: #000;
+    color: white;
 }
 
 .photos-container {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
 .photo-preview {
-  width: 80px;
-  height: 80px;
-  position: relative;
-  border-radius: 8px;
-  overflow: hidden;
+    width: 80px;
+    height: 80px;
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
 }
 
 .photo-preview img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
 }
 
 .delete-photo {
-  position: absolute;
-  top: 4px;
-  right: 4px;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background: rgba(0, 0, 0, 0.5);
-  color: white;
-  border: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  font-size: 18px;
-  z-index: 2;
-  padding: 0;
-  transition: background-color 0.2s ease;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 18px;
+    z-index: 2;
+    padding: 0;
+    transition: background-color 0.2s ease;
 }
 
 .delete-photo:hover {
-  background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.7);
 }
 
 .add-photo {
-  width: 80px;
-  height: 80px;
-  border: 2px dashed #ddd;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  background: none;
-  cursor: pointer;
+    width: 80px;
+    height: 80px;
+    border: 2px dashed #ddd;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    background: none;
+    cursor: pointer;
 }
 
 .save-button {
-  width: 100%;
-  padding: 16px;
-  background: #000;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  cursor: pointer;
-  margin-top: 20px;
+    width: 100%;
+    padding: 16px;
+    background: #000;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
 }
 
 select {
-  appearance: none;
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
-  background-repeat: no-repeat;
-  background-position: right 1rem center;
-  background-size: 1em;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1em;
 }
