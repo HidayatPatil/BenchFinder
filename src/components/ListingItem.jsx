@@ -15,6 +15,7 @@ export default function ListingItem({ benchData }) {
                             location={benchData?.location}
                             tags={benchData?.tags}
                             benchId={benchData?.id}
+                            rating={benchData?.rating}
                         />
                         <BenchPhotos
                             showHeading={false}

@@ -1,11 +1,23 @@
+.drawer_container {
+    width: 100%;
+    position: absolute;
+    top: calc(50vh - 24px);
+    bottom: 0;
+    padding: 24px 20px 20px 20px;
+    background: linear-gradient(135deg, #a9b8ff 0%, #60219e 100%);
+    border-radius: 24px 24px 0 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
 .bench_data {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
 .bench_information {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 }
