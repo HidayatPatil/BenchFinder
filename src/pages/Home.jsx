@@ -1,21 +1,22 @@
-import { useState, useEffect } from 'react';
-import FAB from '../components/FAB';
-import { FiFilter } from 'react-icons/fi';
-import ListingItem from '../components/ListingItem';
+import { useState, useEffect } from "react";
+import FAB from "../components/FAB";
+import { FiFilter } from "react-icons/fi";
+import ListingItem from "../components/ListingItem";
 
 export default function Home() {
     const [benches, setBenches] = useState([]);
+    const [filterTag, setFilterTag] = useState("");
+    const [isFilterOpen, setIsFilterOpen] = useState(false);
 
     const loadBenches = () => {
-        // Load benches from localStorage
-        const storedBenches = localStorage.getItem('benches');
+        const storedBenches = localStorage.getItem("benches");
         if (storedBenches) {
             try {
                 const parsedBenches = JSON.parse(storedBenches);
                 setBenches(parsedBenches);
             } catch (error) {
                 console.error(
-                    'Error parsing benches from localStorage:',
+                    "Error parsing benches from localStorage:",
                     error
                 );
             }
@@ -27,69 +28,66 @@ export default function Home() {
     useEffect(() => {
         loadBenches();
 
-        // Add event listener for custom bench update event
         const handleBenchUpdate = () => {
             loadBenches();
         };
 
-        window.addEventListener('benchesUpdated', handleBenchUpdate);
-
-        // Also reload when the window gains focus (returning from another page)
-        window.addEventListener('focus', loadBenches);
+        window.addEventListener("benchesUpdated", handleBenchUpdate);
+        window.addEventListener("focus", loadBenches);
 
         return () => {
-            window.removeEventListener('benchesUpdated', handleBenchUpdate);
-            window.removeEventListener('focus', loadBenches);
+            window.removeEventListener("benchesUpdated", handleBenchUpdate);
+            window.removeEventListener("focus", loadBenches);
         };
-    }, []); // Empty dependency array means this runs once when component mounts
+    }, []);
 
-    const handleDelete = (benchId) => {
-        // Confirm deletion with user
-        const confirmDelete = window.confirm(
-            'Are you sure you want to delete this bench?'
-        );
-
-        if (confirmDelete) {
-            try {
-                // Get existing benches from localStorage
-                const storedBenches = localStorage.getItem('benches');
-                const benchesList = JSON.parse(storedBenches || '[]');
-
-                // Filter out the bench with the matching ID
-                const updatedBenches = benchesList.filter(
-                    (bench) => bench.id.toString() !== benchId.toString()
-                );
-
-                // Save updated benches back to localStorage
-                localStorage.setItem('benches', JSON.stringify(updatedBenches));
-
-                // Reload benches to update the UI
-                loadBenches();
-
-                console.log('Bench deleted successfully');
-            } catch (error) {
-                console.error('Error deleting bench:', error);
-                alert('Failed to delete bench. Please try again.');
-            }
-        }
-    };
+    const filteredBenches = filterTag
+        ? benches.filter((bench) => bench.tags?.includes(filterTag))
+        : benches;
 
     return (
-        <div className='bench_home_page'>
-            <div className='home_title_header'>
-                <h2>My Benches ({benches.length})</h2>
-                <FiFilter className='filter_icon' />
+        <div className="bench_home_page">
+            <div className="home_title_header">
+                <h2>My Benches ({filteredBenches.length})</h2>
+                <div className="filter_icon_wrapper">
+                    <FiFilter
+                        className="filter_icon"
+                        onClick={() => setIsFilterOpen(!isFilterOpen)}
+                    />
+                    {isFilterOpen && (
+                        <div className="filter_overlay">
+                            <label htmlFor="filter">Filter by Tag:</label>
+                            <select
+                                id="filter"
+                                value={filterTag}
+                                onChange={(e) => setFilterTag(e.target.value)}>
+                                <option value="">All</option>
+                                {[
+                                    ...new Set(
+                                        benches.flatMap(
+                                            (bench) => bench.tags || []
+                                        )
+                                    ),
+                                ].map((tag) => (
+                                    <option key={tag} value={tag}>
+                                        {tag}
+                                    </option>
+                                ))}
+                            </select>
+                        </div>
+                    )}
+                </div>
             </div>
             <FAB />
-            <div className='bench_listings'>
-                {benches.length > 0 ? (
-                    benches.map((bench) => (
+            <div className="bench_listings">
+                {filteredBenches.length > 0 ? (
+                    filteredBenches.map((bench) => (
                         <ListingItem key={bench.id} benchData={bench} />
                     ))
                 ) : (
-                    <div className='no-benches-message'>
-                        No benches added yet. Click the + button to add your
-                        first bench!
+                    <div className="no-benches-message">
+                        No benches match the selected filter. Click the + button
+                        to add a new bench!
                     </div>
                 )}
             </div>
