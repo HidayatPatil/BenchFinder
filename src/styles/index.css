@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 
 /* Reset default margins and padding */
 * {
@@ -15,7 +15,7 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     overflow-x: hidden;
 }
 
@@ -161,4 +161,37 @@ a {
     100% {
         opacity: 0;
     }
+}
+
+.filter_icon_wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.filter_overlay {
+    position: absolute;
+    top: 32px;
+    right: 0;
+    z-index: 1000; /* Ensure it appears above other elements */
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 200px; /* Adjust width as needed */
+}
+
+.filter_overlay label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #333;
+}
+
+.filter_overlay select {
+    width: 100%;
+    padding: 5px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
